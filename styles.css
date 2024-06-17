@@ -63,6 +63,11 @@ section {
   text-align: center;
 }
 
+#home img{
+  width: 65%;
+  height: 65%;
+}
+
 #about {
   background: #fff;
 }
