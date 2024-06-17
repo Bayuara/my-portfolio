@@ -1,13 +1,17 @@
-document
-  .getElementById("contact-form")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("navbar-nav");
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
-
-    alert(
-      `Thank you for contacting us, ${name}! We will get back to you shortly.`
-    );
+  menuToggle.addEventListener("click", function (event) {
+    event.stopPropagation();
+    menuToggle.classList.toggle("active");
+    navMenu.classList.toggle("active");
   });
+
+  document.addEventListener("click", function (event) {
+    if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+      navMenu.classList.remove("active");
+      menuToggle.classList.remove("active");
+    }
+  });
+});
